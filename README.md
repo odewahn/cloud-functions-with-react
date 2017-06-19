@@ -11,79 +11,8 @@ npm install -g create-react-app
 
 ## Create a new app
 
-```
-create-react-app cra-vsg-test
-```
+Clone this repo and reset the git history (i.e., delete the `.git` directory and then `git init` again).  The run `npm install`.  
 
-Then cd into the new directory.
-
-Once you're in there, you can do `npm start` to see that it's working.
-
-
-## Install redux and dependencies
-
-```
-npm install --save redux react-redux redux-thunk immutable react-router material-ui
-```
-
-
-## Set up and install the VSG
-
-Following the [for developers](https://http.styleguide.svc.dev-seb.local/#for-developers) instructions in the styleguide, add the internal package manager to the `.npmrc` file:
-
-```
-@oreilly:registry=https://http.npm.svc.dev-seb.local
-registry=https://registry.npmjs.org/
-strict-ssl=false
-```
-
-You can tweak the locations:
-
-* https://http.npm.svc.dev-seb.local -  hosted in Sebastopol
-* https://http.npm.svc.prod-sfo.local -  hosted in San Francisco
-* https://http.npm.svc.prod-1summer.local - hosted in Boston (coming soon)
-
-Once you're set up, install the packages.  Be sure to include the `@oreilly` namespace so that `nom` picks up the internal registry:
-
-```
-npm install --save-dev @oreilly/shape-react-core @oreilly/shape-css
-```
-
-## Replace `src/App.js` content
-
-Open the `src/App.js` and replace it with this:
-
-```
-import React, { Component } from "react";
-import { SafariChrome } from "@oreilly/shape-react-core";
-
-import "@oreilly/shape-react-core/index.css";
-import "@oreilly/shape-css/grid.css";
-
-const user = {
-  user_type: "Trial",
-  user_identifier: "f38ee9b3-06f5-468a-a245-000000000000",
-  primary_account: "b70baefa-e8ed-44ca-8a6e-111111111111",
-  username: "odewahn",
-  first_name: "Andrew",
-  last_name: "Odewahn",
-  salesforce_id: "foobar",
-  permissions: {
-    view_full_epub: true,
-    view_collections: false
-  }
-};
-
-export default class MyUserInfo extends Component {
-  render() {
-    return (
-      <SafariChrome user={user}>
-        <iframe src="http://jupyterhub.odewahn.com"></iframe>
-      </SafariChrome>
-    );
-  }
-}
-```
 
 ## Run `npm start`
 
@@ -104,6 +33,4 @@ Then you run the service you want to proxy to on some other port (or even do it 
 
 ## Installing this repo as is
 
-If you just want to view this app, you can clone the repo and then run `npm install` to download and install all the dependencies.  Then do `npm start` to view the app:
-
-<img src="public/demo.gif"/>
+Start hacking...
