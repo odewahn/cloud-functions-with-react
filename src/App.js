@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
 import stateTree from "./state/index";
-import Login from "./components/login";
+import Posts from "./components/posts";
 
 import injectTapEventPlugin from "react-tap-event-plugin";
 
@@ -25,7 +25,7 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider>
         <Provider store={store}>
-          <Login />
+          <Posts />
         </Provider>
       </MuiThemeProvider>
     );

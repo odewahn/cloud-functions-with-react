@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.3",
     "form-data": "^2.2.0",
     "immutable": "^3.8.1",
     "material-ui": "^0.18.3",
+    "node-fetch": "^1.7.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",

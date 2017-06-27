@@ -7,8 +7,9 @@ import { fromJS } from "immutable";
 ||  Define the state tree
 *********************************************************************/
 const INITIAL_STATE = fromJS({
-  name: "andrew",
-  email: "andrew@oreilly.com"
+  is_loading: false,
+  page: 1,
+  posts: {}
 });
 
 /*********************************************************************
@@ -16,7 +17,7 @@ const INITIAL_STATE = fromJS({
 *********************************************************************/
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "setName":
+    case "setPostField":
       return state.set(action.key, action.value);
     default:
       return state;
@@ -24,18 +25,32 @@ export default function(state = INITIAL_STATE, action) {
 }
 
 /*********************************************************************
+||  Reducers actions
+*********************************************************************/
+export function setPostField(key, val) {
+  return { type: "setPostField", key: key, value: val };
+}
+
+export function updatePostPage(delta) {
+  return (dispatch, getState) => {
+    var newVal = getState().Posts.get("page") + delta;
+    dispatch(setPostField("page", newVal));
+  };
+}
+
+/*********************************************************************
 ||  Async Actions
 *********************************************************************/
 
-export function fetchUserAccountType(email) {
-  console.log(email);
+export function fetchPosts() {
   return (dispatch, getState) => {
+    dispatch(setPostField("is_loading", true));
     return fetch(
-      "http://localhost:8010/safari-mobile-auth/us-central1/accountType",
+      "http://localhost:8010/react-gcloud-template/us-central1/posts",
       {
         method: "POST",
         body: JSON.stringify({
-          email: email
+          page: getState().Posts.get("page")
         })
       }
     )
@@ -44,6 +59,8 @@ export function fetchUserAccountType(email) {
       })
       .then(json => {
         console.log(json);
+        dispatch(setPostField("is_loading", false));
+        dispatch(setPostField("posts", fromJS(json)));
       });
   };
 }
