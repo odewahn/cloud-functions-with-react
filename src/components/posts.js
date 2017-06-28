@@ -14,7 +14,7 @@ class Posts extends React.Component {
       return <li><a href={p.get("perma_link")}>{p.get("title")}</a></li>;
     });
     return (
-      <div>
+      <div style={{ padding: "20px" }}>
         <h1>
           Posts (page {this.props.Posts.get("page")})
           {this.props.Posts.get("is_loading")
