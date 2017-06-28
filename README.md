@@ -1,6 +1,6 @@
 # Using Google Cloud Functions with React
 
-[Cloud Functions](https://cloud.google.com/functions/) is Google's entry into the [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing) craze.  This architectural approach promises to dramatically reduce the cost and complexity of developing, scaling, and operating a web application.  While there are still a host of issues to resolve, the potential benefits are enormous.
+[Cloud Functions](https://cloud.google.com/functions/) is Google's entry into the [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing) craze.  This architectural approach promises to dramatically reduce the cost and complexity of developing, scaling, and operating networked applications.  While there are still a host of issues to resolve, the potential benefits are enormous, especially for microservices, IoT, and mobile applications.
 
 This article and [companion github repo](https://github.com/odewahn/cloud-functions-with-react) show how to use Cloud Functions as the backend for a React app that can be deployed as a static website.  While frameworks like [serverless](https://serverless.com/) provide more features, the approach presented here is a simple and quick way to get a basic frontend and backend up and running quickly.
 
@@ -198,7 +198,7 @@ timeout: 60s
 updateTime: '2017-06-28T14:18:12Z'
 ```
 
-## Set up the frontend
+## Set up the React frontend
 
 
 Once you've set up the backend functions, you're ready to tackle the frontend.  If you're starting completely from scratch (as opposed to cloning from an existing project), you'll need [create-react-app](https://github.com/facebookincubator/create-react-app), a tool from Facebook that let's you "create React apps with no build configuration."  Basically, it's an opinionated way to structure your projects and tools.
@@ -230,7 +230,11 @@ As a quick description of how the project is organized:
 * All the frontend code is in the `src` directory, which is the default from `create-react-app`
 * The main entry point, `src/App.js`, sets up the `redux` store and the `redux-thunk` middleware.
 * The `src/state` directory has all the redux stores.  I like to use `combine-reducers` so that I can break out the state tree into logical units, so if you want to add a new kind of state object, put it in a new file (you can use `src/state/posts.js` as a template) and then add is into the combined reducers in `srs/state/index.js`.
-* All the state logic for this sample is in `src/state/posts.js`.  In addition to the ability to dispatch a thunk that retrieves data from our API, I've also set up logic to control a spinner.  In production code, you'd want to also do things like handling errors, but that's beyond the scope of this article.
+* All the state logic for this sample is in `src/state/posts.js`.  In addition to the ability to dispatch a thunk that retrieves data from the cloud function, I've also set up logic to control a spinner/progress meter.  In production code, you'd want to also do things like handling errors, but that's beyond the scope of this article.
 * The main UI component is in `src/components/posts.js`.  This shows how to use the [material-ui](https://github.com/callemall/material-ui) toolkit to make a simple UI that consists of a list based on the API results, along with a couple of nav buttons to page though the results.
 
-## Where to go next
+Once you're ready to deploy the React app, you can run `npm run build` and `react-create-app` will create a compiled, minified app in a `build` directory that is ready to publish as a static site.  For example, you could commit the files in `build` to the top level of a `gh-pages` branch of a new project and publish your app with GitHub pages.
+
+## Conclusion
+
+The combination of the serverless architecture with a React frontend published as a static site is a great way to quickly spin up new applications with minimal administrative overhead.  However, as mentioned in the outset, where serverless is likely to really shine are in quickly deploying microservices and IoT or mobile backends.  The superior economics of cloud functions over traditional hosting present many exciting opportunities, so watch this space carefully.
