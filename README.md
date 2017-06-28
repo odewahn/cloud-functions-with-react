@@ -1,4 +1,4 @@
-# Using Google Cloud Functions with React
+# Serverless on Google: Cloud Functions + React
 
 [Cloud Functions](https://cloud.google.com/functions/) is Google's entry into the [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing) craze.  This architectural approach promises to dramatically reduce the cost and complexity of developing, scaling, and operating networked applications.  While there are still a host of issues to resolve, the potential benefits are enormous, especially for microservices, IoT, and mobile applications.
 
@@ -20,8 +20,8 @@ Before you start, you'll need to:
 * Create a [google cloud account](https://cloud.google.com/)
 * Install the [Google cloud sdk](https://cloud.google.com/sdk/) so that you can manage your cloud from the command line.
 * Install (or already have) [Node](https://nodejs.org/en/) version 6 or higher.
-* Install (or already have)[create-react-app](https://github.com/facebookincubator/create-react-app), Facebook's awesome utility for bootstrapping, developing, and building React projects.
-* Clone the [odewahn/cloud-functions-with-react](https://github.com/odewahn/cloud-functions-with-react) repository from GitHub.  Once you clone the repository, `cd` into it and run `npm install`.
+* Install (or already have) [create-react-app](https://github.com/facebookincubator/create-react-app), Facebook's awesome utility for bootstrapping, developing, and building React projects.
+* Clone [odewahn/cloud-functions-with-react](https://github.com/odewahn/cloud-functions-with-react)  from GitHub, `cd` into it, and run `npm install`.
 
 Once you've got these pieces in place, move on to the next section.
 
