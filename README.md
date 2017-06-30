@@ -1,4 +1,4 @@
-# DRAFT: Serverless on Google: Cloud Functions + React
+# Serverless on Google: Cloud Functions + React
 
 [Cloud Functions](https://cloud.google.com/functions/) is Google's entry into the [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing) craze.  The promise of the serverless architecture is to dramatically reduce the cost and complexity of developing, scaling, and operating a range of applications.  While there are still a host of issues to resolve, the potential benefits are enormous, especially for microservices, IoT, and mobile.
 
